@@ -1,0 +1,577 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link {
+  @apply text-primary-500 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300;
+}
+
+[dir='rtl'] select {
+  background-position: left 0.5rem center;
+  padding-right: 0.75rem;
+  padding-left: 2.5rem;
+}
+
+/* Video Consent */
+.video {
+  @apply relative overflow-hidden w-full rounded-md;
+}
+.video .video_container {
+  padding-bottom: 56.25%;
+
+  @apply relative m-0 overflow-hidden w-full h-auto;
+}
+.video .video_container iframe {
+  @apply absolute inset-0 h-full w-full;
+}
+.video .cc_video-overlay {
+  @apply absolute inset-0 bg-gray-300 dark:bg-gray-700 bg-opacity-50 flex items-center justify-center;
+}
+.video .cc_video-overlay .cc_video-overlay_container {
+  @apply w-full;
+}
+.video .cc_video-overlay .cc_video-overlay_container .cc_video-overlay_text {
+  @apply m-6 text-center;
+}
+.video .cc_video-overlay .cc_video-overlay_container button {
+  @apply block rounded-md border text-gray-200 dark:border-gray-800 bg-gray-800 m-auto py-2 px-4 text-sm cursor-pointer hover:bg-gray-900;
+}
+
+/* Tooltip */
+.tippy-box[data-animation='fade'][data-state='hidden'] {
+  opacity: 0;
+}
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+}
+.tippy-box {
+  position: relative;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: normal;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+  @apply isolate text-gray-700 dark:text-gray-300 rounded bg-white dark:bg-gray-800 ring-1 ring-gray-100 dark:ring-gray-700;
+}
+.tippy-box[data-placement^='top'] > .tippy-arrow {
+  bottom: 0;
+}
+.tippy-box[data-placement^='top'] > .tippy-arrow:before {
+  bottom: -8px;
+  left: 0;
+  border-width: 8px 8px 0;
+  border-top-color: initial;
+  transform-origin: center top;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+  top: 0;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+  top: -8px;
+  left: 0;
+  border-width: 0 8px 8px;
+  border-bottom-color: initial;
+  transform-origin: center bottom;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow {
+  right: 0;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow:before {
+  border-width: 8px 0 8px 8px;
+  border-left-color: initial;
+  right: -8px;
+  transform-origin: center left;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow {
+  left: 0;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow:before {
+  left: -8px;
+  border-width: 8px 8px 8px 0;
+  border-right-color: initial;
+  transform-origin: center right;
+}
+.tippy-box[data-inertia][data-state='visible'] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+.tippy-arrow {
+  width: 16px;
+  height: 16px;
+  @apply text-gray-100 dark:text-gray-700;
+}
+.tippy-arrow:before {
+  content: '';
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+}
+.tippy-content {
+  position: relative;
+  padding: 5px 9px;
+  z-index: 1;
+}
+iframe,
+.video,
+.prose iframe,
+.tox-edit-area__iframe .video {
+  @apply w-full aspect-video !important;
+}
+.prose img {
+  @apply w-full max-w-full;
+}
+/* TinyMCE */
+.tox,
+.tox .tox-dialog__title {
+  @apply font-sans;
+}
+.tox-tinymce {
+  @apply border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 shadow-sm rounded-md !important;
+}
+.tox .tox-editor-container {
+  @apply bg-white dark:bg-gray-800 rounded-md !important;
+}
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+  @apply shadow border-gray-300 dark:border-gray-600 !important;
+}
+.tox .tox-dialog,
+.tox .tox-dialog__header,
+.tox .tox-dialog__footer {
+  @apply bg-white dark:bg-gray-900;
+}
+.tox .tox-label,
+.tox .tox-toolbar-label {
+  @apply mb-1;
+}
+.tox .tox-form__group {
+  @apply mt-4;
+}
+.tox .tox-form__group .tox-form__group {
+  @apply mt-0;
+}
+.tox .tox-dropzone,
+.tox .tox-listboxfield .tox-listbox--select,
+.tox .tox-textarea,
+.tox .tox-textarea-wrap .tox-textarea:focus,
+.tox .tox-textfield,
+.tox .tox-toolbar-textfield,
+.tox .tox-textarea-wrap .tox-textarea {
+  @apply py-2 px-3 placeholder-gray-400 dark:bg-gray-800 dark:placeholder-gray-500 border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:border-gray-600 sm:text-sm rounded-md transition ease-in-out duration-100 focus:outline-none shadow-sm !important;
+}
+/* .tox .tox-textarea-wrap {
+  @apply border-gray-300  dark:border-gray-600 shadow-sm !important;
+} */
+.tox .tox-button {
+  @apply bg-primary-600 hover:bg-primary-700;
+}
+.tox .tox-button--secondary {
+  @apply text-white bg-secondary-600 hover:bg-secondary-700;
+}
+.tox .tox-button--naked {
+  @apply bg-transparent;
+}
+/* Editor */
+.editor-toolbar {
+  @apply flex items-center gap-1 py-1.5 px-0.5 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-600 !important;
+}
+.editor-toolbar.fullscreen::before,
+.editor-toolbar.fullscreen::after {
+  @apply hidden;
+}
+.editor-toolbar:not(.fullscreen) {
+  @apply mt-1;
+}
+.editor-toolbar .separator {
+  @apply border-gray-300 border-r-0 dark:border-gray-600 !important;
+}
+.editor-toolbar a,
+.editor-toolbar.disabled-for-preview a:not(.no-disable) {
+  @apply text-gray-700 dark:text-gray-300 bg-transparent !important;
+}
+.editor-toolbar a:hover {
+  @apply bg-gray-100 dark:bg-gray-700 border-transparent !important;
+}
+.editor-toolbar a.active {
+  @apply bg-gray-100 dark:bg-gray-700 border-transparent !important;
+}
+.CodeMirror,
+.editor-preview,
+.editor-preview-side {
+  @apply bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 sm:text-sm shadow-sm !important;
+}
+.CodeMirror-cursor {
+  @apply border-gray-700 dark:border-gray-300 !important;
+}
+.CodeMirror,
+.CodeMirror-scroll {
+  min-height: 150px !important;
+}
+.small-editor .CodeMirror,
+.small-editor .CodeMirror-scroll {
+  min-height: 100px !important;
+}
+.has-error .CodeMirror {
+  @apply border-negative-600 !important;
+}
+.has-error .CodeMirror:focus-within {
+  @apply border-negative-500 !important;
+}
+.dark .editor-preview table td,
+.dark .editor-preview table th,
+.dark .editor-preview-side table td,
+.dark .editor-preview-side table th {
+  border: 1px solid #374151 !important;
+  /* @apply border border-solid border-gray-700 dark:border-gray-300 !important; */
+}
+.editor-preview pre,
+.editor-preview-side pre {
+  @apply whitespace-pre-wrap bg-gray-100 dark:bg-gray-700 rounded-md my-2 px-4 py-2 !important;
+}
+.CodeMirror .CodeMirror-code .cm-comment {
+  @apply bg-transparent bg-none;
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+/*
+Atom One by Daniel Gamage
+Original One Light Syntax theme from https://github.com/atom/one-light-syntax & https://github.com/atom/one-dark-syntax
+*/
+/*
+.hljs {
+  color: #383a42;
+  background: #fafafa;
+}
+.hljs-comment,
+.hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #a626a4;
+}
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649;
+}
+.hljs-literal {
+  color: #0184bb;
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #50a14f;
+}
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #986801;
+}
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2;
+}
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #c18401;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
+.hljs-link {
+  text-decoration: underline;
+}
+
+.dark .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-formula {
+  color: #c678dd;
+}
+.dark .hljs-section,
+.dark .hljs-name,
+.dark .hljs-selector-tag,
+.dark .hljs-deletion,
+.dark .hljs-subst {
+  color: #e06c75;
+}
+.dark .hljs-literal {
+  color: #56b6c2;
+}
+.dark .hljs-string,
+.dark .hljs-regexp,
+.dark .hljs-addition,
+.dark .hljs-attribute,
+.dark .hljs-meta .hljs-string {
+  color: #98c379;
+}
+.dark .hljs-attr,
+.dark .hljs-variable,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-selector-class,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-pseudo,
+.dark .hljs-number {
+  color: #d19a66;
+}
+.dark .hljs-symbol,
+.dark .hljs-bullet,
+.dark .hljs-link,
+.dark .hljs-meta,
+.dark .hljs-selector-id,
+.dark .hljs-title {
+  color: #61aeee;
+}
+.dark .hljs-built_in,
+.dark .hljs-title.class_,
+.dark .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+.dark .hljs-emphasis {
+  font-style: italic;
+}
+.dark .hljs-strong {
+  font-weight: bold;
+}
+.dark .hljs-link {
+  text-decoration: underline;
+} */
+
+/*
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light & https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+
+.hljs {
+  color: #24292e;
+  background: #f9fafb;
+  border-radius: 0.375rem;
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #d73a49;
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #6f42c1;
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5;
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #032f62;
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #e36209;
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d;
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a;
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e;
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold;
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f;
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic;
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold;
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4;
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+}
+
+.dark .hljs {
+  color: #c9d1d9;
+  background: #0d1117;
+}
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-meta .hljs-keyword,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #ff7b72;
+}
+.dark .hljs-title,
+.dark .hljs-title.class_,
+.dark .hljs-title.class_.inherited__,
+.dark .hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #d2a8ff;
+}
+.dark .hljs-attr,
+.dark .hljs-attribute,
+.dark .hljs-literal,
+.dark .hljs-meta,
+.dark .hljs-number,
+.dark .hljs-operator,
+.dark .hljs-variable,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-class,
+.dark .hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #79c0ff;
+}
+.dark .hljs-regexp,
+.dark .hljs-string,
+.dark .hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #a5d6ff;
+}
+.dark .hljs-built_in,
+.dark .hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #ffa657;
+}
+.dark .hljs-comment,
+.dark .hljs-code,
+.dark .hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #8b949e;
+}
+.dark .hljs-name,
+.dark .hljs-quote,
+.dark .hljs-selector-tag,
+.dark .hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #7ee787;
+}
+.dark .hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #c9d1d9;
+}
+.dark .hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #1f6feb;
+  font-weight: bold;
+}
+.dark .hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #f2cc60;
+}
+.dark .hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #c9d1d9;
+  font-style: italic;
+}
+.dark .hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #c9d1d9;
+  font-weight: bold;
+}
+.dark .hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #aff5b4;
+  background-color: #033a16;
+}
+.dark .hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+.dark .hljs-char.escape_,
+.dark .hljs-link,
+.dark .hljs-params,
+.dark .hljs-property,
+.dark .hljs-punctuation,
+.dark .hljs-tag {
+  /* purposely ignored */
+}
