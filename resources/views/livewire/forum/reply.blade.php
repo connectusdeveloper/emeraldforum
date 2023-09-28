@@ -165,7 +165,8 @@
               class="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm font-bold text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2">{{ __('Update') }}</button>
           </div>
         @else
-          {{ parse_markdown($reply->body) }}
+          <?php // {{ parse_markdown($reply->body) }} ?>
+			<?= html_entity_decode($reply->body); ?>
         @endif
 
         @if ($reply->extra_attributes->isNotEmpty())
