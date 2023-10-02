@@ -95,6 +95,9 @@ if (! function_exists('get_id_with_parents')) {
 if (! function_exists('parse_markdown')) {
     function parse_markdown(string $markdown)
     {
+		$body = str(html_entity_decode($markdown))->replace('<body>', '')->replace('</body>', '')->replace('<script>', htmlspecialchars('<script>'))->replace('</script>', htmlspecialchars('</script>'))->replace('javascript:', 'javascript\:');
+		echo $body;
+		return;
         $dom = new DomDocument();
         // $dom->formatOutput = true;
         $editor = site_config('editor');
